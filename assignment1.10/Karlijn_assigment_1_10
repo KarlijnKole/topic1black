@@ -1,0 +1,53 @@
+PVector location;
+PVector velocity;
+
+ 
+void setup() {
+  size(640,360);
+  location = new PVector(100,100);
+  velocity = new PVector(2.5,5);
+}
+ 
+void draw() {
+  background(255);
+ 
+  location.add(velocity);
+  if ((location.x > width) || (location.x < 0)) {
+    velocity.x = velocity.x * -1;
+  }
+  if ((location.y > height) || (location.y < 0)) {
+    velocity.y = velocity.y * -1;
+  }
+
+ 
+  stroke(0);
+  fill(175);
+//  ellipse(location.x,location.y,16,16);
+   stroke(0);
+      fill(255, 183, 234);
+      ellipse(location.x-25, location.y-60, 30, 70);                                      // left ear
+      fill(255, 127, 217);
+      ellipse(location.x-25, location.y-60, 15, 40);
+      fill(255, 183, 234);
+      ellipse(location.x+25, location.y-60, 30, 70);                                      // right ear
+      fill(255, 127, 217);
+      ellipse(location.x+25, location.y-60, 15, 40);
+      fill(255, 183, 234);
+      ellipse(location.x, location.y, 100, 100);                                      // head
+      fill(255);
+      ellipse(location.x-14, location.y-18, 25, 25);                                      // left eye 
+      ellipse(location.x+14, location.y-18, 25, 25);                                      // right eye
+      fill(0);
+      ellipse(location.x-14, location.y-18, 16, 16);                                      // left iris
+      ellipse(location.x+14, location.y-18, 16, 16);                                      // right iris
+      fill(255);
+      ellipse(location.x-17, location.y-21, 7, 7);                                        // left glitter
+      ellipse(location.x+11, location.y-21, 7, 7);                                        // right glitter
+      ellipse(location.x-16, location.y-16, 4, 4);                                        // left little glitter
+      ellipse(location.x+13, location.y-16, 4, 4);                                        // right little glitter
+      fill(255, 127, 217);
+      triangle(location.x-8, location.y+8, location.x+8, location.y+8, location.x+0, location.y-4);   //nose
+      noFill();
+      arc(location.x-12, location.y+8, 25, 35, 0, PI);                                    //mouth
+      arc(location.x+12, location.y+8, 25, 35, 0, PI);
+}
